@@ -399,20 +399,18 @@ namespace Sexy
 		public static void MkDir(string theDir)
 		{
 			int startIndex = 0;
-			IsolatedStorageFile userStoreForApplication;
 			while (true)
 			{
 				int num = theDir.IndexOf('/', startIndex);
-				userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
 				if (num == -1)
 				{
 					break;
 				}
 				startIndex = num + 1;
 				theDir.Substring(0, num);
-				userStoreForApplication.CreateDirectory(theDir);
+				Directory.CreateDirectory(theDir);
 			}
-			userStoreForApplication.CreateDirectory(theDir);
+			Directory.CreateDirectory(theDir);
 		}
 
 		public static bool Deltree(string thePath)
@@ -427,10 +425,9 @@ namespace Sexy
 
 		public static bool DeleteFile(string lpFileName)
 		{
-			IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
-			if (userStoreForApplication.FileExists(lpFileName))
+			if (File.Exists(lpFileName))
 			{
-				userStoreForApplication.DeleteFile(lpFileName);
+				File.Delete(lpFileName);
 				return true;
 			}
 			return false;

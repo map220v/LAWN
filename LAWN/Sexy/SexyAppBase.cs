@@ -256,13 +256,12 @@ namespace Sexy
 		{
 			try
 			{
-				IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
-				if (!userStoreForApplication.FileExists(theFileName))
+				if (!File.Exists(theFileName))
 				{
 					return true;
 				}
-				userStoreForApplication.DeleteFile(theFileName);
-				if (userStoreForApplication.FileExists(theFileName))
+				File.Delete(theFileName);
+				if (File.Exists(theFileName))
 				{
 					return false;
 				}
@@ -361,8 +360,7 @@ namespace Sexy
 
 		public bool FileExists(string filename)
 		{
-			IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
-			return userStoreForApplication.FileExists(filename);
+			return File.Exists(filename);
 		}
 
 		public void UpdateInput()
@@ -658,19 +656,12 @@ namespace Sexy
 		{
 			try
 			{
-				using (IsolatedStorageFile isolatedStorageFile = IsolatedStorageFile.GetUserStoreForApplication())
+				string directoryName = Path.GetDirectoryName(theFileName);
+				if (!Directory.Exists(directoryName))
 				{
-					string directoryName = Path.GetDirectoryName(theFileName);
-					if (!isolatedStorageFile.DirectoryExists(directoryName))
-					{
-						isolatedStorageFile.CreateDirectory(directoryName);
-					}
-					using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(theFileName, FileMode.OpenOrCreate, isolatedStorageFile))
-					{
-						isolatedStorageFileStream.Write(theBuffer.Data, 0, theBuffer.Data.Length);
-						isolatedStorageFileStream.Close();
-					}
+					Directory.CreateDirectory(directoryName);
 				}
+				File.WriteAllBytes(theFileName, theBuffer.Data);
 			}
 			catch (Exception ex)
 			{
@@ -684,20 +675,12 @@ namespace Sexy
 		{
 			try
 			{
-				using (IsolatedStorageFile isolatedStorageFile = IsolatedStorageFile.GetUserStoreForApplication())
+				if (!File.Exists(theFileName))
 				{
-					if (!isolatedStorageFile.FileExists(theFileName))
-					{
-						return false;
-					}
-					using (IsolatedStorageFileStream isolatedStorageFileStream = isolatedStorageFile.OpenFile(theFileName, FileMode.OpenOrCreate))
-					{
-						byte[] array = new byte[isolatedStorageFileStream.Length];
-						isolatedStorageFileStream.Read(array, 0, (int)isolatedStorageFileStream.Length);
-						theBuffer.Data = array;
-						isolatedStorageFileStream.Close();
-					}
+					return false;
 				}
+				byte[] array = new byte[File.OpenRead(theFileName).Length];
+				theBuffer.Data = File.ReadAllBytes(theFileName);
 			}
 			catch (Exception ex)
 			{
