@@ -32,6 +32,8 @@ namespace Sexy
 
 		private GamePadState previousGamepadState = default(GamePadState);
 
+		private MouseState previousMouseState = default(MouseState);
+
 		public static bool RunWhenLocked
 		{
 			get
@@ -75,6 +77,7 @@ namespace Sexy
 			SetupTileSchedule();
 			graphics = Graphics.GetNew(this);
 			SetLowMem();
+			IsMouseVisible = true;
 			graphics.IsFullScreen = false;//true
 			//Guide.SimulateTrialMode = false;
 			graphics.PreferredBackBufferWidth = 800;
@@ -318,6 +321,26 @@ namespace Sexy
 						GlobalStaticVars.gSexyAppBase.TouchesCanceled();
 					}
 				}
+
+				/* Mouse Handle */
+				MouseState state3 = Mouse.GetState();
+				_Touch touch2 = default(_Touch);
+				touch2.location.mX = state3.X;
+				touch2.location.mY = state3.Y;
+				if (state3.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
+				{
+					GlobalStaticVars.gSexyAppBase.TouchBegan(touch2);
+				}
+				else if (state3.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Pressed)
+				{
+					GlobalStaticVars.gSexyAppBase.TouchMoved(touch2);
+				}
+				else if (state3.LeftButton == ButtonState.Released && previousMouseState.LeftButton == ButtonState.Pressed)
+				{
+					GlobalStaticVars.gSexyAppBase.TouchEnded(touch2);
+				}
+
+				previousMouseState = state3;
 				previousGamepadState = state;
 			}
 		}
