@@ -12,6 +12,9 @@ namespace Sexy
 
 		public static void ASSERT(bool value)
 		{
+#if DEBUG
+			System.Diagnostics.Debug.Assert(value);
+#endif
 		}
 	}
 }
