@@ -482,7 +482,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y /s $(SolutionDir)\NativeLibs\  $(ProjectDir)$(OutDir)
-xcopy /y /s $(SolutionDir)\GameFiles\  $(ProjectDir)$(OutDir)</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /s /d $(SolutionDir)\NativeLibs\  $(ProjectDir)$(OutDir)
+xcopy /y /s /d $(SolutionDir)\GameFiles\  $(ProjectDir)$(OutDir)</PostBuildEvent>
   </PropertyGroup>
 </Project>
