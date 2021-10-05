@@ -50,8 +50,7 @@ namespace Sexy
 
 		public override bool LoadMusic(int theSongId, string theFileName)
 		{
-			//TODO: try to fix xnb files
-			//mSongs[theSongId] = mContent.Load<Song>(theFileName);
+			mSongs[theSongId] = mContent.Load<Song>(theFileName+".ogg");
 			return true;
 		}
 
