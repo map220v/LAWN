@@ -714,6 +714,11 @@ namespace Sexy
 			mWidgetManager.TouchesCanceled();
 		}
 
+		public bool KeyChar(SexyChar theChar)
+		{
+			return mWidgetManager.KeyChar(theChar);
+		}
+
 		public void ShakeBegan(double timestamp)
 		{
 		}

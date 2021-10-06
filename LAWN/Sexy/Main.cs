@@ -34,6 +34,8 @@ namespace Sexy
 
 		private MouseState previousMouseState = default(MouseState);
 
+		private KeyboardState previousKeyboardState = default(KeyboardState);
+
 		public static bool RunWhenLocked
 		{
 			get
@@ -339,8 +341,21 @@ namespace Sexy
 				{
 					GlobalStaticVars.gSexyAppBase.TouchEnded(touch2);
 				}
+				/* Cheat Keyboard Handle */
+				KeyboardState state4 = Keyboard.GetState();
+				bool Shift = state4.IsKeyDown(Keys.LeftShift) || state4.IsKeyDown(Keys.RightShift);
+				foreach (Keys key in state4.GetPressedKeys())
+				{
+					if (state4.IsKeyDown(key) && previousKeyboardState.IsKeyUp(key))
+					{
+#if DEBUG
+						GlobalStaticVars.gSexyAppBase.KeyChar(new SexyChar(TUtils.KeyToChar(key, Shift)));
+#endif
+					}
+				}
 
 				previousMouseState = state3;
+				previousKeyboardState = state4;
 				previousGamepadState = state;
 			}
 		}

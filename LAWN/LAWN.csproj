@@ -450,6 +450,7 @@
     <Compile Include="Sexy\TRectDouble.cs" />
     <Compile Include="Sexy\TrialAchievementAlert.cs" />
     <Compile Include="Sexy\TriVertex.cs" />
+    <Compile Include="Sexy\TUtils.cs" />
     <Compile Include="Sexy\TypedKey.cs" />
     <Compile Include="Sexy\UI_ORIENTATION.cs" />
     <Compile Include="Sexy\VideoType.cs" />
