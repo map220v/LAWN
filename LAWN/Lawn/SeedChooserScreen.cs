@@ -109,7 +109,7 @@ namespace Lawn
 			mRandomButton.SetFont(Resources.FONT_BRIANNETOD12);
 			mRandomButton.mColors[0] = new SexyColor(255, 240, 0);
 			mRandomButton.mColors[1] = new SexyColor(200, 200, 255);
-			mRandomButton.Resize((int)Constants.InvertAndScale(332f), (int)Constants.InvertAndScale(546f), (int)Constants.InvertAndScale(100f), (int)Constants.InvertAndScale(30f));
+			mRandomButton.Resize((int)Constants.InvertAndScale(332f), (int)Constants.InvertAndScale(280f), (int)Constants.InvertAndScale(100f), (int)Constants.InvertAndScale(30f));
 			if (!mApp.mTodCheatKeys)
 			{
 				mRandomButton.mBtnNoDraw = true;
