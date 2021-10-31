@@ -694,6 +694,11 @@ namespace Sexy
 		{
 		}
 
+		public void MousePosition(int x, int y)
+        {
+			mWidgetManager.MousePosition(x, y);
+		}
+
 		public void TouchBegan(_Touch touch)
 		{
 			mWidgetManager.TouchBegan(touch);

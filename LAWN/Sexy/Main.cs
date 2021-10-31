@@ -329,6 +329,9 @@ namespace Sexy
 				_Touch touch2 = default(_Touch);
 				touch2.location.mX = state3.X;
 				touch2.location.mY = state3.Y;
+#if MOUSETESTENABLED
+				GlobalStaticVars.gSexyAppBase.MousePosition(state3.X, state3.Y);
+#endif
 				if (state3.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
 				{
 					GlobalStaticVars.gSexyAppBase.TouchBegan(touch2);
