@@ -695,7 +695,7 @@ namespace Sexy
 		}
 
 		public void MousePosition(int x, int y)
-        {
+		{
 			mWidgetManager.MousePosition(x, y);
 		}
 
