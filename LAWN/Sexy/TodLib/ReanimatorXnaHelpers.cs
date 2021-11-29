@@ -58,7 +58,11 @@ namespace Sexy.TodLib
 
 		public static bool ReanimationLoadDefinition(string theFilename, ref ReanimatorDefinition theDefinition)
 		{
-			if (!GlobalStaticVars.gSexyAppBase.mResourceManager.LoadReanimation(theFilename, ref theDefinition))
+			Reanimator reanimator = new Reanimator();
+			theDefinition = reanimator.ParseReanimationFile("Content/" + theFilename + ".reanim");
+			//TODO: Replace Atlas extractor with simple image loader
+			theDefinition.ExtractImages();
+			if (theDefinition == null)
 			{
 				return false;
 			}

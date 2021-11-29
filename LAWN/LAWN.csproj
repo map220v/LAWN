@@ -404,6 +404,7 @@
     <Compile Include="Sexy\TodLib\ReanimationType.cs" />
     <Compile Include="Sexy\TodLib\ReanimAtlas.cs" />
     <Compile Include="Sexy\TodLib\ReanimAtlasImage.cs" />
+    <Compile Include="Sexy\TodLib\Reanimator.cs" />
     <Compile Include="Sexy\TodLib\ReanimatorDefinition.cs" />
     <Compile Include="Sexy\TodLib\ReanimatorFrameTime.cs" />
     <Compile Include="Sexy\TodLib\ReanimatorTrack.cs" />

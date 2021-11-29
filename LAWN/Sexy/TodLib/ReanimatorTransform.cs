@@ -50,12 +50,13 @@ namespace Sexy.TodLib
 
 		public static ReanimatorTransform GetNewReanimatorTransform()
 		{
-			if (unusedObjects.Count > 0)
+			//TODO: fix this to fix memory leak.
+			/*if (unusedObjects.Count > 0)
 			{
 				ReanimatorTransform reanimatorTransform = unusedObjects.Pop();
 				reanimatorTransform.Reset();
 				return reanimatorTransform;
-			}
+			}*/
 			return new ReanimatorTransform();
 		}
 
