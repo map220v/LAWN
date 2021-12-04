@@ -60,7 +60,7 @@ namespace Sexy.TodLib
 		{
 			Reanimator reanimator = new Reanimator();
 			theDefinition = reanimator.ParseReanimationFile("Content/" + theFilename + ".reanim");
-			//TODO: Replace Atlas extractor with simple image loader
+			//TODO: Automatically detect images that required to be loaded (instead of hardcoding every image in resources.xml)
 			theDefinition.ExtractImages();
 			if (theDefinition == null)
 			{
