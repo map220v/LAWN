@@ -696,6 +696,7 @@
   <Image id="CREDITS_SPEAKER_OVERLAY" path="Credits_speaker_overlay" />
   <Image id="CREDITS_STAGE" path="Credits_stage" />
   <Image id="CREDITS_THROAT" path="Credits_throat" format="jpg" />
+  <Image id="CREDITS_WEARETHEUNDEAD" path="Credits_wearetheundead" />
   <Image id="CREDITS_WHITELINE" path="Credits_WhiteLine" />
   <Image id="DIAMOND" path="Diamond" />
   <Image id="DIAMOND_SHINE1" path="Diamond_shine1" />
@@ -1384,15 +1385,22 @@
   <Image id="TREE3" path="tree3" />
   <Image id="TREE4" path="tree4" />
   <Image id="TREE5" path="tree5" />
+  <Image id="TREE6" path="tree6" />
+  <Image id="TREE7" path="tree7" />
+  <Image id="TREE8" path="tree8" />
+  <Image id="TREE9" path="tree9" />
   <Image id="TREEFOOD" path="TreeFood" />
   <Image id="TREEFOOD2" path="TreeFood2" />
   <Image id="TREEFOOD3" path="TreeFood3" />
   <Image id="TREEFOOD4" path="TreeFood4" />
   <Image id="TREE_BG" path="tree_bg" format="jpg" />
+  <Image id="TREE_GRASS" path="tree_grass" />
   <Image id="TREE_OVERLAY4" path="tree_overlay4" />
   <Image id="TREE_OVERLAY5" path="tree_overlay5" />
   <Image id="TREE_OVERLAY6" path="tree_overlay6" />
   <Image id="TREE_OVERLAY7" path="tree_overlay7" />
+  <Image id="TREE_OVERLAY8" path="tree_overlay8" />
+  <Image id="TREE_OVERLAY9" path="tree_overlay9" />
   <Image id="TWINSUNFLOWER_LEAF" path="TwinSunflower_leaf" />
   <Image id="TWINSUNFLOWER_STEM1" path="TwinSunflower_stem1" />
   <Image id="TWINSUNFLOWER_STEM2" path="TwinSunflower_stem2" />
