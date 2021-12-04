@@ -621,7 +621,7 @@
   <Image id="CRAZYDAVE_BEARD" path="CrazyDave_beard" />
   <Image id="CRAZYDAVE_BLINK1" path="CrazyDave_blink1" />
   <Image id="CRAZYDAVE_BLINK2" path="CrazyDave_blink2" />
-  <Image id="CRAZYDAVE_BODY1" path="CrazyDave_body1"/>
+  <Image id="CRAZYDAVE_BODY1" path="CrazyDave_body1" />
   <Image id="CRAZYDAVE_BODY2" path="CrazyDave_body2" />
   <Image id="CRAZYDAVE_EYE" path="CrazyDave_eye" />
   <Image id="CRAZYDAVE_EYEBROW" path="CrazyDave_eyebrow" />
