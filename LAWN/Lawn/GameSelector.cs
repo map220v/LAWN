@@ -739,13 +739,16 @@ namespace Lawn
 				state = GameSelectorScreenState.Main;
 				break;
 			case 117:
-				//mAchievementsScrollWidget.ScrollToMin(false);
-				//SlideTo(-Constants.ACHIEVEMENTS_ORIGIN_X, -Constants.BOARD_HEIGHT);
-				//mAchievementsScrollWidget.SetDisabled(false);
-				//state = GameSelectorScreenState.Achievements;
+#if DEBUG
 				mApp.KillGameSelector();
 				mApp.ShowChallengeScreen(ChallengePage.CHALLENGE_PAGE_LIMBO);
-				break;
+#else
+				mAchievementsScrollWidget.ScrollToMin(false);
+				SlideTo(-Constants.ACHIEVEMENTS_ORIGIN_X, -Constants.BOARD_HEIGHT);
+				mAchievementsScrollWidget.SetDisabled(false);
+				state = GameSelectorScreenState.Achievements;
+#endif
+					break;
 			case 118:
 				if (mAchievementsScrollWidget.GetScrollOffset().y != 0f)
 				{
