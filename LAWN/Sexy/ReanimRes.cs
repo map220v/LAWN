@@ -8,7 +8,7 @@ namespace Sexy
 
 		public ReanimRes()
 		{
-			mType = ResType.ResType_Image;
+			mType = ResType.ResType_Reanim;
 		}
 
 		public override void DeleteResource()

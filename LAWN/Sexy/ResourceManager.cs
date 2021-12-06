@@ -182,10 +182,20 @@ namespace Sexy
 		public bool LoadReanimation(string filename, ref ReanimatorDefinition def)
 		{
 			Reanimator reanimator = new Reanimator();
-			//TODO: Automatically detect images that required to be loaded (instead of hardcoding every image in resources.xml)
-			def = reanimator.ParseReanimationFile("Content/" + filename + ".reanim");
-			def.ExtractImages();
-			return true;
+			if (File.Exists("Content/" + filename + ".reanim"))
+            {
+				def = reanimator.ParseReanimationFile("Content/" + filename + ".reanim");
+				//TODO: Automatically detect images that required to be loaded (instead of hardcoding every image in resources.xml)
+				def.ExtractImages();
+				return true;
+			}
+			else if (File.Exists("Content/" + filename + ".xnb"))
+            {
+				def = mReanimContentManager.Load<ReanimatorDefinition>(filename);
+				def.ExtractImages();
+				return true;
+			}
+			return false;
 		}
 
 		public bool LoadParticle(string filename, ref TodParticleDefinition def)

@@ -93,6 +93,10 @@ namespace Sexy.TodLib
 			if (!string.IsNullOrEmpty(mImageName))
 			{
 				mImage = GlobalStaticVars.gSexyAppBase.mResourceManager.GetImageThrow(mImageName);
+				if (mImage == null)
+                {
+					mImage = AtlasResources.GetImageInAtlasById(AtlasResources.GetAtlasIdByStringId(mImageName));
+				}
 				if (mImage == null && mImageName == "IMAGE_REANIM_ZOMBIESWON")
 				{
 					mImage = Resources.IMAGE_REANIM_ZOMBIESWON;
