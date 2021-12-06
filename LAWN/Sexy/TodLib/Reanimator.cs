@@ -22,7 +22,7 @@ namespace Sexy.TodLib
 			reanim.LoadXml("<reanim>"+readText+"</reanim>");
 			XmlNode node = reanim.DocumentElement.SelectSingleNode("/reanim/fps");
 			XmlNodeList tracks = reanim.GetElementsByTagName("track");
-			reanimatorDefinition.mFPS = int.Parse(node.InnerText);
+			reanimatorDefinition.mFPS = float.Parse(node.InnerText);
 			reanimatorDefinition.mTrackCount = (short)tracks.Count;
 			reanimatorDefinition.mTracks = new ReanimatorTrack[reanimatorDefinition.mTrackCount];
 			for (int i = 0; i < reanimatorDefinition.mTrackCount; i++)

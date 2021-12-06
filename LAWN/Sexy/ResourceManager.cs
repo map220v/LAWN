@@ -181,7 +181,9 @@ namespace Sexy
 
 		public bool LoadReanimation(string filename, ref ReanimatorDefinition def)
 		{
-			def = mReanimContentManager.Load<ReanimatorDefinition>(filename);
+			Reanimator reanimator = new Reanimator();
+			//TODO: Automatically detect images that required to be loaded (instead of hardcoding every image in resources.xml)
+			def = reanimator.ParseReanimationFile("Content/" + filename + ".reanim");
 			def.ExtractImages();
 			return true;
 		}
