@@ -50,13 +50,12 @@ namespace Sexy.TodLib
 
 		public static ReanimatorTransform GetNewReanimatorTransform()
 		{
-			//TODO: fix this to fix memory leak.
-			/*if (unusedObjects.Count > 0)
+			if (unusedObjects.Count > 0)
 			{
 				ReanimatorTransform reanimatorTransform = unusedObjects.Pop();
 				reanimatorTransform.Reset();
 				return reanimatorTransform;
-			}*/
+			}
 			return new ReanimatorTransform();
 		}
 
@@ -94,7 +93,7 @@ namespace Sexy.TodLib
 			{
 				mImage = GlobalStaticVars.gSexyAppBase.mResourceManager.GetImageThrow(mImageName);
 				if (mImage == null)
-                {
+				{
 					mImage = AtlasResources.GetImageInAtlasById(AtlasResources.GetAtlasIdByStringId(mImageName));
 				}
 				if (mImage == null && mImageName == "IMAGE_REANIM_ZOMBIESWON")

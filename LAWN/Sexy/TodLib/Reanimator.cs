@@ -69,13 +69,11 @@ namespace Sexy.TodLib
 			return newReanimatorTransform;
 		}
 
-		//TODO: add support for FontName and Text if they actually exists in reanim files.
-		//TODO: add support for doScale if it's exists in reanim files.
 		private void ReadReanimTransform(XmlNode input, int transformNum, out ReanimatorTransform transform)
 		{
 			transform = GetDefault();
 			if (previous == null || transformNum == 0)
-            {
+			{
 				previous = GetDefault();
 			}
 			//Perfect code XD
@@ -112,11 +110,11 @@ namespace Sexy.TodLib
 				transform.mAlpha = previous.mAlpha;
 			}
 			if (input.SelectSingleNode("i") == null)
-            {
+			{
 				transform.mImageName = previous.mImageName;
 			}
 			foreach (XmlNode node in input)
-            {
+			{
 				if (node.Name == "x")
 				{
 					transform.mTransX = float.Parse(node.InnerText);
@@ -150,7 +148,7 @@ namespace Sexy.TodLib
 					transform.mAlpha = float.Parse(node.InnerText);
 				}
 				if (node.Name == "i")
-                {
+				{
 					transform.mImageName = node.InnerText;
 				}
 			}

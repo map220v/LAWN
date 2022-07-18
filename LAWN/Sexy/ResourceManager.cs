@@ -183,14 +183,14 @@ namespace Sexy
 		{
 			Reanimator reanimator = new Reanimator();
 			if (File.Exists("Content/" + filename + ".reanim"))
-            {
+			{
 				def = reanimator.ParseReanimationFile("Content/" + filename + ".reanim");
 				//TODO: Automatically detect images that required to be loaded (instead of hardcoding every image in resources.xml)
 				def.ExtractImages();
 				return true;
 			}
 			else if (File.Exists("Content/" + filename + ".xnb"))
-            {
+			{
 				def = mReanimContentManager.Load<ReanimatorDefinition>(filename);
 				def.ExtractImages();
 				return true;
