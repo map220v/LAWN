@@ -335,13 +335,20 @@ namespace Sexy
 
 		public void StartLoadingThread()
 		{
-			if (!mLoadingThreadStarted)
+			if (Environment.OSVersion.Platform == PlatformID.Win32NT)
 			{
-				Thread thread = new Thread(LoadingThreadProcStub);
-				thread.IsBackground = true;
-				thread.Start();
-				mLoadingThreadStarted = true;
+				if (!mLoadingThreadStarted)
+				{
+					Thread thread = new Thread(LoadingThreadProcStub);
+					thread.IsBackground = true;
+					thread.Start();
+					mLoadingThreadStarted = true;
+				}
 			}
+			else {
+				LoadingThreadProcStub();
+			}
+			
 		}
 
 		public void LoadingThreadProcStub()
