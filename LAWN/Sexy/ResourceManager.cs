@@ -1294,7 +1294,7 @@ namespace Sexy
 		{
 			Texture2D texture2D = null;
 			GraphicsDevice graphicsDevice = GlobalStaticVars.g.GraphicsDevice;
-			using (Stream stream = TitleContainer.OpenStream("Content\\" + filename + "." + format.ToString()))
+			using (Stream stream = TitleContainer.OpenStream("Content\\" + filename + "." + format.ToString().ToLower()))
 			{
 				texture2D = Texture2D.FromStream(graphicsDevice, stream);
 			}
