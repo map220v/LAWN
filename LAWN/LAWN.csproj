@@ -5,19 +5,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Lawn\Strings.resources" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="Lawn\Strings.resx" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="..\GameFiles\**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
