@@ -418,6 +418,19 @@
 <Image id="ZOMBIE_NOTE_HELP" path="zombienotehelp"  languageSpecific="true" a4r4g4b4="" />
 </Resources>
 
+<Resources id="LoadingReanims">
+  <SetDefaults path="reanim" idprefix="REANIM_" />
 
+  <Reanim id="TREE_FOOD" path="treefood" />
+</Resources>
+
+<Resources id="LoadingReanimImages">
+  <SetDefaults path="reanim" idprefix="IMAGE_REANIM_" />
+
+  <Image id="TREEFOOD" path="TreeFood" />
+  <Image id="TREEFOOD2" path="TreeFood2" />
+  <Image id="TREEFOOD3" path="TreeFood3" />
+  <Image id="TREEFOOD4" path="TreeFood4" />
+</Resources>
 
 </ResourceManifest>

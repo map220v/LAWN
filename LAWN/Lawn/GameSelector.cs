@@ -748,7 +748,7 @@ namespace Lawn
 				mAchievementsScrollWidget.SetDisabled(false);
 				state = GameSelectorScreenState.Achievements;
 #endif
-					break;
+				break;
 			case 118:
 				if (mAchievementsScrollWidget.GetScrollOffset().y != 0f)
 				{

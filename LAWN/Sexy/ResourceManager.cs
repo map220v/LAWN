@@ -181,9 +181,21 @@ namespace Sexy
 
 		public bool LoadReanimation(string filename, ref ReanimatorDefinition def)
 		{
-			def = mReanimContentManager.Load<ReanimatorDefinition>(filename);
-			def.ExtractImages();
-			return true;
+			Reanimator reanimator = new Reanimator();
+			if (File.Exists("Content/" + filename + ".reanim"))
+			{
+				def = reanimator.ParseReanimationFile("Content/" + filename + ".reanim");
+				//TODO: Automatically detect images that required to be loaded (instead of hardcoding every image in resources.xml)
+				def.ExtractImages();
+				return true;
+			}
+			else if (File.Exists("Content/" + filename + ".xnb"))
+			{
+				def = mReanimContentManager.Load<ReanimatorDefinition>(filename);
+				def.ExtractImages();
+				return true;
+			}
+			return false;
 		}
 
 		public bool LoadParticle(string filename, ref TodParticleDefinition def)
@@ -1282,7 +1294,7 @@ namespace Sexy
 		{
 			Texture2D texture2D = null;
 			GraphicsDevice graphicsDevice = GlobalStaticVars.g.GraphicsDevice;
-			using (Stream stream = TitleContainer.OpenStream("Content\\" + filename + "." + format.ToString()))
+			using (Stream stream = TitleContainer.OpenStream("Content\\" + filename + "." + format.ToString().ToLower()))
 			{
 				texture2D = Texture2D.FromStream(graphicsDevice, stream);
 			}

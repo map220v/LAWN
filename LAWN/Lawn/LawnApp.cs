@@ -460,6 +460,7 @@ namespace Lawn
 			mTitleScreen.mLoaderScreenIsLoaded = true;
 			mNumLoadingThreadTasks += mResourceManager.GetNumResources("LoadingFonts") * 54;
 			mNumLoadingThreadTasks += mResourceManager.GetNumResources("LoadingImages") * 9;
+			mNumLoadingThreadTasks += mResourceManager.GetNumResources("LoadingReanimImages") * 9;
 			mNumLoadingThreadTasks += mResourceManager.GetNumResources("LoadingSounds") * 54;
 			mNumLoadingThreadTasks += 612;
 			mNumLoadingThreadTasks += 8092;
