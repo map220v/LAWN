@@ -89,7 +89,6 @@
   <ItemGroup>
     <Compile Include="AndroidGameIME.cs" />
     <Compile Include="BuglyAppBind.cs" />
-    <Compile Include="BuglyAppBindId.cs" />
     <Compile Include="PvZActivity.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MonoGame.Framework.Net\MACRO.cs" />
