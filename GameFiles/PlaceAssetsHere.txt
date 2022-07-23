@@ -1,0 +1,3 @@
+Content/
+LawnStrings*.txt
+resources.xml
