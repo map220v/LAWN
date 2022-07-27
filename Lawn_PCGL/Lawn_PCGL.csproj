@@ -20,15 +20,8 @@
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IronPython" Version="2.7.12" />
-    <PackageReference Include="Lidgren.Network.Core2" Version="1.0.0" />
-    <PackageReference Include="MLEM.Data" Version="6.0.0" />
-    <PackageReference Include="MonoGame.Framework.Android" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.IMEHelper.DesktopGL" Version="0.10.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="WebSocketSharp.NetCore" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Icon.png">
@@ -38,5 +31,4 @@
   </ItemGroup>
   <Import Project="..\Lawn_Shared\Lawn_Shared.projitems" Label="Shared" />
   <Import Project="..\MonoGame.Framework.Net\MonoGame.Framework.Net.projitems" Label="Shared" />
-  <Import Project="..\IronPyInteractiveDef_Shared\IronPyInteractiveDef_Shared.projitems" Label="Shared" />
 </Project>

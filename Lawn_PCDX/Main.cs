@@ -127,7 +127,6 @@ namespace Sexy
             Main.GamerServicesComp = new GamerServicesComponent(this);
             base.Components.Add(Main.GamerServicesComp);
             ReportAchievement.Initialise();
-            LawnMod.IronPyInteractive.Serve();
             base.Initialize();
             // Window Scaling
             var f = new SharpDX.Direct2D1.Factory();
@@ -148,7 +147,6 @@ namespace Sexy
 
         protected override void OnExiting(object sender, EventArgs args) 
         {
-            LawnMod.IronPyInteractive.Stop();		
         }
 
         protected override void LoadContent()

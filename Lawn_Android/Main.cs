@@ -84,18 +84,6 @@ namespace Sexy
             //PhoneApplicationService.Current.Deactivated += new EventHandler<DeactivatedEventArgs>(this.Current_Deactivated);
         }
 
-        internal static string FetchIronPythonStdLib(Version version)
-        {
-            return GlobalStaticVars.gPvZActivity.GetIronPythonStdLibPath(version);
-
-        }
-
-        internal static void IronPythonConfigureWorkDir()
-        {
-            GlobalStaticVars.gPvZActivity.ConfigureWorkDirAsLocalData();
-
-        }
-
         //private void Current_Deactivated(object sender, DeactivatedEventArgs e)
         //{
         //	GlobalStaticVars.gSexyAppBase.Tombstoned();
@@ -191,18 +179,7 @@ namespace Sexy
             base.Window.OrientationChanged += new EventHandler<EventArgs>(this.Window_OrientationChanged);
             ReportAchievement.Initialise();
             base.Initialize();
-#if !DEBUG
-            try
-            {
-#endif
-                LawnMod.IronPyInteractive.Serve();
-#if !DEBUG
-            }
-            catch (Exception e)
-            {
-                Sexy.GlobalStaticVars.gPvZActivity.OnException(this, e);
-            }
-#endif
+
             // Window scaling
             GlobalStaticVars.gSexyAppBase.mScreenScales.Init(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, 800, 480);
             Main.graphics.PreferredBackBufferWidth = 800;

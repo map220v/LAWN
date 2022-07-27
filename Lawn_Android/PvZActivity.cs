@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using ICSharpCode.SharpZipLib.Zip;
 
 namespace Lawn_Android
 {
@@ -89,52 +88,6 @@ namespace Lawn_Android
             aDialog.SetMessage($"{err.Message}\n{err.StackTrace}");
             aDialog.SetPositiveButton("Close", delegate { });
             aDialog.Show();
-        }
-
-        internal string GetIronPythonStdLibPath(Version version)
-        {
-            string libFolderPath = "IronPython/Libs";
-            string libFolderExtPath = GetExternalFilesDir(libFolderPath).AbsolutePath;
-            string packedlibFileName = $"IronPython.StdLib.{version.Major}.{version.Minor}.{version.Build}.zip";
-            string verInfoFileName = "info.txt";
-            string verInfoFilePath = Path.Combine(libFolderExtPath, verInfoFileName);
-            if (File.Exists(verInfoFilePath))
-            {
-                using (var s = new StreamReader(verInfoFilePath))
-                {
-                    string str = s.ReadToEnd();
-                    if (str.StartsWith(packedlibFileName))
-                        return libFolderExtPath;
-                }
-            }
-
-            int index = Array.IndexOf(Assets.List(libFolderPath), packedlibFileName);
-            if (index != -1)
-            {
-                using (var packedlibStream = new MemoryStream())
-                {
-                    Assets.Open(Path.Combine(libFolderPath, packedlibFileName)).CopyTo(packedlibStream);
-                    packedlibStream.Position = 0;
-                    var fastZip = new FastZip(); 
-                    fastZip.ExtractZip(
-                        packedlibStream,
-                        GetExternalFilesDir(libFolderPath).AbsolutePath,
-                        FastZip.Overwrite.Always,
-                        null,
-                        null, null, false, true // 由于奇怪的兼容性问题(.NET 6修复)，在部分系统上无法还原时间等属性
-                    );
-                };
-                using (var verInfoWriter = new StreamWriter(verInfoFilePath))
-                {
-                    verInfoWriter.WriteLine(packedlibFileName);
-                    verInfoWriter.Flush();
-                }
-                return libFolderExtPath;
-            }
-            else
-            {
-                throw new FileNotFoundException($"{packedlibFileName} not found in ANDROID_ASSET/{libFolderPath}");
-            }
         }
 
         internal void ConfigureWorkDirAsLocalData()
