@@ -131,6 +131,9 @@ namespace Sexy
             mMusicInterface.SetDefaultFadeOut(0.006f);
             mMusicVolume = 0.85;
             mSfxVolume = 0.85;
+#if DEBUG
+            mDebugKeysEnabled = true;
+#endif
         }
 
         ~SexyAppBase()
